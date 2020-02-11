@@ -37,7 +37,8 @@ async fn main() {
                 // Get the current count, and also increment by 1, in a single
                 // atomic operation.
                 let count = counter.fetch_add(1, Ordering::AcqRel);
-                async move { Ok::<_, Error>(Response::new(Body::from(format!("Request #{}", count)))) }
+                let resp = format!("Goodbye Hello World: {}", count);
+                async move { Ok::<_, Error>(Response::new(Body::from(resp)) }
             }))
         }
     });
