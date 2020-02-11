@@ -1,4 +1,4 @@
-#![deny(warnings)]
+// #![deny(warnings)]
 
 // use std::sync::{
 //     atomic::{AtomicUsize, Ordering},
@@ -45,8 +45,6 @@ async fn main() {
     });
 
     let server = Server::bind(&addr).serve(make_service);
-
-    println!("Listening on http://{}", addr);
 
     if let Err(e) = server.await {
         eprintln!("server error: {}", e);
